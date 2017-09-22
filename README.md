@@ -1,2 +1,2 @@
 # game-of-life
-Just a simple implementation of Conway's famous cellular automata
+Just a simple implementation of Conway's famous cellular automata.
