@@ -21,8 +21,7 @@ class CellManager {
 public:
     enum CellState {
         NONE = 0,
-        DECEASED = 1,
-        ALIVE = 2,
+        ALIVE = 1,
     };
 
     // Set cell as alive

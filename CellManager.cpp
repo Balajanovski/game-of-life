@@ -42,9 +42,6 @@ void CellManager::iterate() {
     for (auto& cell : alive_cells) {
         drawer->push(cell);
     }
-    for (auto& cell : regen_cells) {
-        drawer->push(cell);
-    }
 }
 
 void CellManager::apply_rules() {
@@ -58,12 +55,10 @@ void CellManager::apply_rules() {
 
                 // If there are less than two neighbours or more than three, kill the cell off
                 if (neighbours < 2) {
-                    field[y][x] = DECEASED;
                     deceased_cells.emplace(x, y);
                     alive_cells.erase({x, y});
                 }
                 else if (neighbours > 3) {
-                    field[y][x] = DECEASED;
                     deceased_cells.emplace(x, y);
                     alive_cells.erase({x, y});
                 }
@@ -72,9 +67,7 @@ void CellManager::apply_rules() {
 
                 // If there are 3 neighbours, regen the cell
                 if (neighbours == 3) {
-                    if (check_cell(x, y) == DECEASED) {
-                        deceased_cells.erase({x, y});
-                    }
+                    deceased_cells.erase({x, y});
                     regen_cells.emplace(x, y);
                 }
             }
