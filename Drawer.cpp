@@ -19,7 +19,7 @@ Drawer::Drawer(int field_width, int field_height)
 }
 
 void Drawer::flush() {
-    // Draw black background
+    // Draw white background
     SDL_SetRenderDrawColor(renderer.get(), 255, 255, 255, SDL_ALPHA_OPAQUE);
     SDL_RenderClear(renderer.get());
 
